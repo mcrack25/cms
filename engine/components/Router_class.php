@@ -7,7 +7,7 @@ class Router {
     private $routes;
 
     public function __construct() {
-        $this->routes = include Dirs::get('configs') . '/routes.php';
+        $this->routes = require_once Dirs::get('configs') . '/routes.php';
     }
 
     private function getURI() {
