@@ -2,7 +2,7 @@
 
 /* Контроллер отвечающий за всю администраторскую часть сайта */
 
-class AAdminController
+class AAdminController extends AController
 {
 
 }

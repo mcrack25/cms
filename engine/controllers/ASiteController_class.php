@@ -2,7 +2,7 @@
 
 /* Контроллер отвечающий за всю фронтальную часть сайта */
 
-class ASiteController
+class ASiteController extends AController
 {
 
 }
