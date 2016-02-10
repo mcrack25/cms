@@ -2,7 +2,6 @@
 
 /* Автор: Ахмедов Мурад Алилович */
 
-
 // Устанавливаем кодировку
 header('Content-Type: text/html; charset=utf-8');
 
