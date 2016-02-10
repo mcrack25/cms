@@ -25,19 +25,19 @@ class Dirs {
         ];
 
         $mass += [
-            'components' => $tpl['engine'] . '/components',
-            'configs' => $tpl['engine'] . '/configs',
-            'acontrollers' => $tpl['engine'] . '/acontrollers',
-            'controllers' => $tpl['engine'] . '/controllers',
-            'models' => $tpl['engine'] . '/models',
-            'views' => $tpl['engine'] . '/views',
+            'components' => $mass['engine'] . '/components',
+            'configs' => $mass['engine'] . '/configs',
+            'acontrollers' => $mass['engine'] . '/acontrollers',
+            'controllers' => $mass['engine'] . '/controllers',
+            'models' => $mass['engine'] . '/models',
+            'views' => $mass['engine'] . '/views',
         ];
 
         $mass += [
-            'error404' => $tpl['templates_system'] . '/error404',
-            'system_site' => $tpl['templates_system'] . '/site',
-            'system_admin' => $tpl['templates_system'] . '/admin',
-            'banners' => $tpl['templates_system'] . '/banners',
+            'error404' => $mass['templates_system'] . '/error404',
+            'system_site' => $mass['templates_system'] . '/site',
+            'system_admin' => $mass['templates_system'] . '/admin',
+            'banners' => $mass['templates_system'] . '/banners',
         ];
 
         //URL Адреса директорий
@@ -52,10 +52,10 @@ class Dirs {
         ];
 
         $mass += [
-            'url_error404' => $tpl['url_templates_system'] . '/error404',
-            'url_system_site' => $tpl['url_templates_system'] . '/site',
-            'url_system_admin' => $tpl['url_templates_system'] . '/admin',
-            'url_banners' => $tpl['url_templates_system'] . '/banners',
+            'url_error404' => $mass['url_templates_system'] . '/error404',
+            'url_system_site' => $mass['url_templates_system'] . '/site',
+            'url_system_admin' => $mass['url_templates_system'] . '/admin',
+            'url_banners' => $mass['url_templates_system'] . '/banners',
         ];
 
         return $mass;
