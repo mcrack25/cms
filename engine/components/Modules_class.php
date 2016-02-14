@@ -31,4 +31,25 @@ class Modules
         return $this->result;
     }
 
+    public static function showModules(){
+
+        $folders = scandir(Dirs::get('modules'));
+        foreach ($folders as $folder){
+            if((in_array($folder, ['.','..'])) or (preg_match('/\./', $folder))){
+                array_shift($folders);
+            }
+        }
+        return $folders;
+    }
+
+    public static function showRazdel($module){
+        $module_mass = preg_match('#^([a-zA-Z0-9]+)_([a-zA-Z0-9]+)$#', $module);
+        if(!empty($module_mass[1])){
+            return $module_mass[1];
+        } else {
+            return 'main';
+        }
+    }
+
+
 }
