@@ -30,6 +30,7 @@ abstract class AModels
     {
         $class = get_called_class();
         $sql = 'SELECT * FROM ' . self::setTable(static::$table);
+        echo $sql ;
         $db = new ADataBase();
         $db->setClassName($class);
         return $db->query($sql);
