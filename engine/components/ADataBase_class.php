@@ -17,7 +17,8 @@ class ADataBase {
         }
     }
 
-    private function getConnection() {
+    private function getConnection()
+    {
         $type = Config::getBase('db_type');
         switch ($type) {
             case 1:
@@ -33,11 +34,13 @@ class ADataBase {
         return $db;
     }
 
-    public function setClassName($className){
+    public function setClassName($className)
+    {
         $this->className = $className;
     }
 
-    public function query($sql,$params=[]){
+    public function query($sql,$params=[])
+    {
         $sth = $this->dbh->prepare($sql);
         $sth->execute($params);
         return $sth->fetchAll(PDO::FETCH_CLASS, $this->className);
