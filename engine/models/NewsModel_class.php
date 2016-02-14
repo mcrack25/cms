@@ -14,6 +14,7 @@
 class NewsModel
     extends AModels
 {
+    protected static $project = 'cms';
     protected static $table = 'news';
 
 }

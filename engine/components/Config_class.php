@@ -29,28 +29,28 @@ class Config {
         }
     }
 
-    public static function getSite($name) {
-        $file_patch = self::selectConfig('/site_config.php');
+    public static function getSite($project, $name) {
+        $file_patch = self::selectConfig('/' . $project . '/site_config.php');
         return self::getMass($file_patch, $name);
     }
 
-    public static function getAdmin($name) {
-        $file_patch = self::selectConfig('/admin_config.php');
+    public static function getAdmin($project, $name) {
+        $file_patch = self::selectConfig('/' . $project . '/admin_config.php');
         return self::getMass($file_patch, $name);
     }
 
-    public static function getAll($name) {
-        $file_patch = self::selectConfig('/all_config.php');
+    public static function getAll($project, $name) {
+        $file_patch = self::selectConfig('/' . $project . '/all_config.php');
         return self::getMass($file_patch, $name);
     }
 
-    public static function getBase($name) {
-        $file_patch = self::selectConfig('/base_config.php');
+    public static function getBase($project, $name) {
+        $file_patch = self::selectConfig('/' . $project . '/base_config.php');
         return self::getMass($file_patch, $name);
     }
 
-    public static function getModules_on_off($name) {
-        $file_patch = self::selectConfig('/modules_on_off.php');
+    public static function getModules_on_off($project, $name) {
+        $file_patch = self::selectConfig('/' . $project . '/modules_on_off.php');
         return self::getMass($file_patch, $name);
     }
 

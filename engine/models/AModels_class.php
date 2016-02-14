@@ -6,9 +6,10 @@ abstract class AModels
 {
     protected $data = [];
     public static $count_items = 0;
+    protected static $project; //В каждой модели нужно указывать к какому проекту она относиться
 
     protected static function setTable($table){
-        return Config::getBase('db_prefix') . $table;
+        return Config::getBase(static::$project, 'db_prefix') . $table;
     }
 
     public function __set($k, $v)
@@ -31,7 +32,7 @@ abstract class AModels
         $class = get_called_class();
         $sql = 'SELECT * FROM ' . self::setTable(static::$table);
         echo $sql ;
-        $db = new ADataBase();
+        $db = new ADataBase(static::$project);
         $db->setClassName($class);
         return $db->query($sql);
     }
@@ -40,7 +41,7 @@ abstract class AModels
     {
         $class = get_called_class();
         $sql = 'SELECT * FROM ' . self::setTable(static::$table) . ' WHERE id = :id';
-        $db = new ADataBase();
+        $db = new ADataBase(static::$project);
         $db->setClassName($class);
         $res = $db->query($sql, [':id'=>$id]);
         if (!empty($res)) {
@@ -51,7 +52,7 @@ abstract class AModels
 
     public static function findOneByColumn($column, $value)
     {
-        $db = new ADataBase();
+        $db = new ADataBase(static::$project);
         $db->setClassName(get_called_class());
         $sql = 'SELECT * FROM ' . self::setTable(static::$table) . ' WHERE ' . $column . '=:value';
         $res = $db->query($sql, [':value' => $value]);
@@ -74,7 +75,7 @@ abstract class AModels
           VALUES
           (' . implode(', ', array_keys($data)). ')
         ';
-        $db = new ADataBase();
+        $db = new ADataBase(static::$project);
         $db->execute($sql, $data);
         $this->id = $db->lastInsertId();
     }
@@ -95,7 +96,7 @@ abstract class AModels
             SET ' . implode(', ', $cols) . '
             WHERE id=:id
         ';
-        $db = new ADataBase();
+        $db = new ADataBase(static::$project);
         $db->execute($sql, $data);
     }
 
@@ -165,7 +166,7 @@ abstract class AModels
             $where_insert = ' WHERE ' . implode(' AND ' , $where_ins);
         }
 
-        $db = new ADataBase();
+        $db = new ADataBase(static::$project);
         $class = get_called_class();
         $db->setClassName($class);
 
