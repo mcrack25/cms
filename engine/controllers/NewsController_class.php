@@ -7,6 +7,8 @@ class NewsController extends ASiteController
     public function action_All($page){
         //$news = NewsModel::findAllOnPage($page, Config::getSite('news_on_page'), ['active'=>1], ['id'=>'DESC']);
         //$count_news = NewsModel::$count_items;
+        $rating = Modules::getModule('rating');
+        echo $rating;
         $news = NewsModel::findAll();
         //echo $count_news;
         echo '<pre>';
